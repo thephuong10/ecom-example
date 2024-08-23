@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: productService
+  r2dbc:
+    url: r2dbc:sqlserver://localhost:1433/ecommercedb
+    username: sa
+    password: Sql@987654321
+  datasource:
+    jdbcUrl: jdbc:sqlserver://localhost:1433;databaseName=ecommercedb;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: Sql@987654321
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  flyway:
+    url: jdbc:sqlserver://localhost:1433;databaseName=ecommercedb;encrypt=true;trustServerCertificate=true
+    user: sa
+    password: Sql@987654321
+    locations: classpath:db/mssql/migration
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+logging:
+  level:
+    com.vn.ecommerce.productservice.customs.r2dbc.LoggingListener: DEBUG
